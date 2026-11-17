@@ -18,7 +18,7 @@ class RVBadge extends fx.Base {
   render() { return `<span class="b" data-v="${esc(this.getAttribute('variant') || 'ink')}"><slot></slot></span>`; }
   setup() { this.el = this.$('.b'); }
   attributeChangedCallback() { if (this.el) this.el.dataset.v = this.getAttribute('variant') || 'ink'; }
-  // pulse() is what the neon version did with its glow: a drawn glint and a puff instead
+  // pulse() lands a drawn glint and a puff instead
   pulse() { const c = at(this.el); kira(c.x + c.w / 2, c.y, { r: 9, life: 0.55 }); puff(c.x, c.y - c.h / 2 - 2, { size: 5, n: 3, vy: -20, life: 0.45 }); }
 }
 fx.define('rv-badge', RVBadge);
