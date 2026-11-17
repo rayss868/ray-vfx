@@ -35,7 +35,7 @@ footer { margin-top:50px; border-top:3px solid var(--rv-ink); color:var(--rv-dim
 <body>
 <nav><strong>RAY / VFX LAB</strong><a href="https://github.com/rayss868/ray-vfx">Source on GitHub</a></nav>
 <main>
-<header class="hero"><div class="eyebrow">Everyday controls. Animated reactions.</div><h1>RAY VFX</h1><p class="intro">Twenty ordinary UI controls that react like an anime key animator drew them. Press one and it squashes on a spring, throws smoke puffs and impact bursts, and lets a manga sound effect land. No framework, no build step, no dependencies.</p><div class="tags"><span>20 components</span><span>Native Web Components</span><span>Zero dependencies</span><span>MIT</span></div></header>
+<header class="hero"><div class="eyebrow">Everyday controls. Animated reactions.</div><h1>RAY VFX</h1><p class="intro">Twenty-six ordinary UI controls that react like an anime key animator drew them. Press one and it squashes on a spring, throws smoke puffs and impact bursts, and lets a manga sound effect land. No framework, no build step, no dependencies.</p><div class="tags"><span>26 components</span><span>Native Web Components</span><span>Zero dependencies</span><span>MIT</span></div></header>
 <div class="toolbar"><label for="search">Find a component</label><input id="search" type="search" placeholder="Button, modal, slider..."><span id="status" role="status">Loading controls...</span></div>
 <section class="grid" id="grid" aria-label="Interactive component gallery"></section>
 </main><footer>Ray VFX · MIT license · <a href="llms.txt">Agent reference</a> · <a href="registry.json">Component registry</a></footer>
@@ -60,7 +60,13 @@ const examples = [
 ['badge','Badge','A small paper chip.','<rv-badge variant="pink" pulse>1UP</rv-badge>'],
 ['modal','Modal','Zooms in on a spring.','<rv-modal title="Paused"><p>Resume?</p><button slot="actions" data-close class="action">Resume</button></rv-modal><button class="action" data-action="modal">Open dialog</button>'],
 ['pagination','Pagination','Chips spring, a smoke ring drifts off.','<rv-pagination total="24" per-page="10" page="2"></rv-pagination>'],
-['spinner','Spinner','An orbiting ink dot.','<rv-spinner label="Loading"></rv-spinner>']
+['spinner','Spinner','An orbiting ink dot.','<rv-spinner label="Loading"></rv-spinner>'],
+['joystick','Joystick','Spring-back arcade stick.','<rv-joystick></rv-joystick>'],
+['marquee','News ticker','Seamless scrolling news flash.','<rv-marquee style="width:280px">NEWS|UPDATE|ALERT</rv-marquee>'],
+['life-counter','Lives counter','Hearts pop and spring back.','<rv-life-counter total="3" value="3"></rv-life-counter>'],
+['power-meter','Power meter','Segmented ink bar.','<rv-power-meter value="70" segments="12"></rv-power-meter>'],
+['crt-overlay','Paper overlay','Screentone scanline vignette.','<rv-crt-overlay scan-opacity="0.4"></rv-crt-overlay>'],
+['progress-steps','Stage steps','Checkpoints spring in.','<rv-progress-steps total="5" value="2"></rv-progress-steps>']
 ];
 const grid=document.querySelector('#grid');
 for(const [name,title,description,html] of examples){const article=document.createElement('article');article.className='demo-card';article.dataset.name=name;article.innerHTML=`<h2>${title}</h2><p>${description}</p><div class="stage">${html}</div><a class="source" href="components/${name}/${name}.js">View ${name} source ↗</a>`;grid.append(article)}

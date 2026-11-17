@@ -2,7 +2,7 @@
 const { readFileSync } = require('node:fs');
 
 let fail = 0;
-const NAMES = ['button','toggle','slider','checkbox','radio','input','tabs','progress','rating','toast','tooltip','select','textarea','alert','card','avatar','badge','pagination','spinner','modal'];
+const NAMES = ['button','toggle','slider','checkbox','radio','input','tabs','progress','rating','toast','tooltip','select','textarea','alert','card','avatar','badge','pagination','spinner','modal','joystick','marquee','life-counter','power-meter','crt-overlay','progress-steps'];
 for (const n of NAMES) {
   const f = `components/${n}/${n}.js`;
   try { new Function(readFileSync(f, 'utf8')); console.log('ok  ', n); }

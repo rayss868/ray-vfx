@@ -2,7 +2,7 @@
 
 Everyday UI controls that react like an anime key animator drew them. At rest they are plain: press one and it squashes on a spring, throws smoke puffs, impact bursts, crystal shards and slashes around itself, and lets a manga sound effect land. White paper, two-tone effects, violet lines, pink accents.
 
-Twenty native Web Components, one self-contained file each, zero dependencies, MIT licensed. No framework, no build step for you.
+Twenty-six native Web Components, one self-contained file each, zero dependencies, MIT licensed. No framework, no build step for you.
 
 GitHub: https://github.com/rayss868/ray-vfx
 Live: https://ray-vfx.vercel.app
@@ -26,7 +26,7 @@ or straight from the CDN:
 
 Use a plain `<script>` (not type="module"). Each file carries its own copy of the effects core, so any subset works on its own; the first one loaded sets window.RayFX and the rest reuse it. One full-page canvas holds every effect.
 
-## The twenty
+## The twenty-six
 
 | element | reaction |
 |---|---|
@@ -50,6 +50,12 @@ Use a plain `<script>` (not type="module"). Each file carries its own copy of th
 | <rv-modal> | Zooms in on a spring, PAAN!, lands in dust |
 | <rv-pagination> | Chips spring, and a smoke ring drifts off the active one |
 | <rv-spinner> | An ink dot orbits; a glint when it finishes |
+| <rv-joystick> | A spring-back thumbstick with 8-way direction |
+| <rv-marquee> | A seamless pipe-separated news ticker |
+| <rv-life-counter> | Ink hearts that pop away and spring back |
+| <rv-power-meter> | Segmented ink bar with a paper shadow |
+| <rv-crt-overlay> | Fixed paper-screentone scanline vignette |
+| <rv-progress-steps> | Checkpoint stages that spring in |
 
 For agents, [llms.txt](llms.txt) lists every file and what it is.
 

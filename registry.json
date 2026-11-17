@@ -262,6 +262,84 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "joystick",
+      "type": "registry:ui",
+      "title": "rv-joystick",
+      "description": "ray-vfx joystick component: anime-styled arcade thumbstick that springs back to centre",
+      "files": [
+        {
+          "path": "components/joystick/joystick.js",
+          "target": "~/public/ray-vfx/joystick.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "rv-marquee",
+      "description": "ray-vfx marquee component: infinite paper-and-ink news ticker",
+      "files": [
+        {
+          "path": "components/marquee/marquee.js",
+          "target": "~/public/ray-vfx/marquee.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "life-counter",
+      "type": "registry:ui",
+      "title": "rv-life-counter",
+      "description": "ray-vfx life-counter component: ink hearts that pop away with a puff",
+      "files": [
+        {
+          "path": "components/life-counter/life-counter.js",
+          "target": "~/public/ray-vfx/life-counter.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "power-meter",
+      "type": "registry:ui",
+      "title": "rv-power-meter",
+      "description": "ray-vfx power-meter component: segmented ink power meter with a paper shadow",
+      "files": [
+        {
+          "path": "components/power-meter/power-meter.js",
+          "target": "~/public/ray-vfx/power-meter.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "crt-overlay",
+      "type": "registry:ui",
+      "title": "rv-crt-overlay",
+      "description": "ray-vfx crt-overlay component: fixed paper-screentone scanline and vignette overlay",
+      "files": [
+        {
+          "path": "components/crt-overlay/crt-overlay.js",
+          "target": "~/public/ray-vfx/crt-overlay.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress-steps",
+      "type": "registry:ui",
+      "title": "rv-progress-steps",
+      "description": "ray-vfx progress-steps component: stage checkpoints that spring in with puffs and ticks",
+      "files": [
+        {
+          "path": "components/progress-steps/progress-steps.js",
+          "target": "~/public/ray-vfx/progress-steps.js",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

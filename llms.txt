@@ -1,4 +1,4 @@
-# ray-vfx: twenty anime-reacting Web Components
+# ray-vfx: twenty-six anime-reacting Web Components
 
 One file per component, zero dependencies, MIT. Each file self-registers its element as a classic script; it carries its own copy of the core. The first loaded file sets window.RayFX; one fixed canvas over the page draws every effect. No CSS import, no bundler.
 
@@ -24,6 +24,12 @@ One file per component, zero dependencies, MIT. Each file self-registers its ele
 18. rv-modal: zooms in on a spring, PAAN!, lands in dust; focus trap, Escape and backdrop close. a: title, size(sm|md|lg), closable. m: show(), hide(), toggle(). slots: default, actions. e: ray:open, ray:close.
 19. rv-pagination: the active chip springs, and a smoke ring drifts off it; the last page gets a MAX. a: total, per-page, page, sibling-count, disabled. p: page. e: change.
 20. rv-spinner: an ink dot orbits; determinate when value is set; a glint at 100%. a: variant(orbit|pulse|bars), size(sm|md|lg), value, label. m: set(v).
+21. rv-joystick: an arcade thumbstick that springs back to centre; puffs and a glint on release. a: deadzone. p: x, y, mag, dir. e: rv-joystick.
+22. rv-marquee: an infinite pipe-separated news ticker in paper-and-ink type. a: speed. children: text with | separators.
+23. rv-life-counter: ink hearts that pop away with a puff. a: total, value. m: lose(n), gain(n).
+24. rv-power-meter: segmented ink-and-pink bar with a paper shadow. a: value (0..1), segments, label. p: value. m: set(v).
+25. rv-crt-overlay: a fixed paper-screentone scanline and vignette, pointer-events none. a: scan-opacity.
+26. rv-progress-steps: stage checkpoints that spring in with puffs and ticks. a: total, value, label. p: value. m: go(n).
 
 ## Core API (window.RayFX)
 
