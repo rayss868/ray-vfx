@@ -1,4 +1,4 @@
-// RV Progress Steps: arcade stage progress with checkpoints that spring in.
+// RV Progress Steps: stage progress with checkpoints that spring in.
 // One file, no dependencies. Load it with a script tag and use <rv-progress-steps total="5" value="2"></rv-progress-steps>.
 // Attributes: total, value, label. Property: value. Method: go(n).
 (() => {

@@ -1,4 +1,4 @@
-// RV Joystick: arcade thumbstick with a spring back to centre and 8-way direction.
+// RV Joystick: a thumbstick that springs back to centre with 8-way direction.
 // One file, no dependencies. Load it with a script tag and use <rv-joystick></rv-joystick>.
 // Reads .x / .y / .mag / .dir. Fires rv-joystick with {direction, x, y, mag} on release.
 (() => {

@@ -267,7 +267,7 @@
       "name": "joystick",
       "type": "registry:ui",
       "title": "rv-joystick",
-      "description": "ray-vfx joystick component: anime-styled arcade thumbstick that springs back to centre",
+      "description": "ray-vfx joystick component: anime-styled thumbstick that springs back to centre",
       "files": [
         {
           "path": "components/joystick/joystick.js",
