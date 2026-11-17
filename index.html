@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ray VFX | Interactive arcade controls</title>
+<style>
+:root{color-scheme:dark;--rv-pri:#ff2d75;--rv-acc:#00f0ff;--rv-card:#1a1a2e;--rv-ink:#f0f0f0;--rv-warn:#ffe135}*{box-sizing:border-box}body{margin:0;background:#0d0d1a;color:#f0f0f0;font:16px/1.6 ui-monospace,monospace}a{color:#00f0ff}nav,main,footer{max-width:1320px;margin:auto;padding:24px}nav{display:flex;justify-content:space-between;border-bottom:1px solid #34344e}.hero{padding:80px 0 64px;max-width:900px}.eyebrow{color:#ffe135;font-size:13px;letter-spacing:.15em}h1{font-size:clamp(64px,12vw,150px);letter-spacing:-.08em;line-height:1;margin:24px 0;text-shadow:4px 0 #ff2d75,-4px 0 #00f0ff}h2{font-size:20px;margin:0}.intro{font-size:clamp(18px,3vw,25px);color:#c3c3d7;max-width:740px}.tags{display:flex;gap:12px;flex-wrap:wrap}.tags span{border:1px solid #454560;padding:5px 12px;font-size:13px}.toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:0 0 24px}input[type=search]{background:#19192b;color:white;border:1px solid #555571;padding:12px;font:inherit;flex:1;min-width:180px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));gap:20px}.demo-card{border:1px solid #34344e;background:linear-gradient(140deg,#1b1b30,#131322);padding:24px;min-width:0}.demo-card p{color:#b9b9cf;font-size:14px;min-height:44px}.stage{min-height:150px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;padding:20px 0;overflow-wrap:anywhere}.source{font-size:13px}.action{background:#20203b;border:1px solid #00f0ff;color:white;padding:10px 14px;font:inherit;cursor:pointer}.action:focus-visible,a:focus-visible{outline:3px solid #ffe135;outline-offset:4px}#status{font-size:13px;color:#b9b9cf}footer{margin-top:50px;border-top:1px solid #34344e;color:#b9b9cf}@media(max-width:500px){main,nav,footer{padding:18px}.hero{padding:48px 0}.demo-card{padding:18px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><strong>RV / COMPONENT LAB</strong><a href="https://github.com/rayss868/ray-vfx">Source on GitHub</a></nav>
+<main>
+<header class="hero"><div class="eyebrow">INTERFACES WITH IMPACT</div><h1>RAY VFX</h1><p class="intro">Every interaction gets a reaction. An original collection of neon controls, pixel bursts, and playful arcade motion.</p><div class="tags"><span>20 components</span><span>Vanilla Web Components</span><span>Explore the live controls below</span></div></header>
+<div class="toolbar"><label for="search">Find a component</label><input id="search" type="search" placeholder="Button, modal, slider..."><span id="status" role="status">Loading controls...</span></div>
+<section class="grid" id="grid" aria-label="Interactive component gallery"></section>
+</main><footer>Ray VFX · MIT license · <a href="llms.txt">Agent reference</a> · <a href="registry.json">Component registry</a></footer>
+<script>
+const examples = [
+['button','Impact buttons','Click to trigger the reaction.','<rv-button>Launch</rv-button><rv-button variant="danger">Danger</rv-button><rv-button variant="ghost">Ghost</rv-button>'],
+['toggle','Power switch','Flip between states.','<rv-toggle label="Power"></rv-toggle>'],
+['slider','Signal slider','Drag or use the keyboard to adjust.','<rv-slider label="Signal" min="0" max="100" value="45"></rv-slider>'],
+['checkbox','Checkbox','A small action with a sharp response.','<rv-checkbox>Enable effects</rv-checkbox>'],
+['radio','Radio selector','Choose your difficulty.','<rv-radio label="Difficulty"><option value="easy" selected>Easy</option><option value="hard">Hard</option></rv-radio>'],
+['input','Text input','Type a callsign.','<rv-input label="Callsign" placeholder="Enter callsign"></rv-input>'],
+['tabs','Section tabs','Switch between destinations.','<rv-tabs label="Destination"><option value="home">Home</option><option value="lab">Lab</option><option value="logs">Logs</option></rv-tabs>'],
+['progress','Progress','Run a short loading sequence.','<rv-progress label="Charging"></rv-progress><button class="action" data-action="progress">Charge</button>'],
+['rating','Star rating','Give it a score.','<rv-rating label="Rate this component"></rv-rating>'],
+['toast','Toast notification','Send a temporary notification.','<rv-toast></rv-toast><button class="action" data-action="toast">Show notification</button>'],
+['tooltip','Helpful hint','Hover, focus, or tap.','<rv-tooltip text="A little help when you need it.">Help</rv-tooltip>'],
+['badge','Status badges','Small signals for your interface.','<rv-badge variant="info">Online</rv-badge><rv-badge variant="success">Ready</rv-badge><rv-badge variant="warning">Waiting</rv-badge>'],
+['select','Dropdown','Pick your destination.','<rv-select label="Destination"><option value="orbit">Orbit</option><option value="moon">Moon</option><option value="mars">Mars</option></rv-select>'],
+['textarea','Message field','Leave a note for the next player.','<rv-textarea label="Message" placeholder="Your message"></rv-textarea>'],
+['alert','Alert banner','A message that deserves attention.','<rv-alert variant="info" dismissible>New checkpoint unlocked.</rv-alert>'],
+['card','Reactive card','Move your pointer over the surface.','<rv-card><h3>Checkpoint 01</h3><p>Your next adventure starts here.</p></rv-card>'],
+['avatar','Player avatar','A compact player identity.','<rv-avatar name="Ray" initials="RV" status="online">RV</rv-avatar>'],
+['modal','Dialog','Open a focused interaction.','<rv-modal><h3>Ready to launch?</h3><p>This is a dialog demo.</p></rv-modal><button class="action" data-action="modal">Open dialog</button>'],
+['pagination','Page navigator','Jump to another page.','<rv-pagination total="5" pages="5" page="1"></rv-pagination>'],
+['spinner','Loading indicator','A small loop while you wait.','<rv-spinner label="Loading"></rv-spinner>']
+];
+const grid=document.querySelector('#grid');
+for(const [name,title,description,html] of examples){const article=document.createElement('article');article.className='demo-card';article.dataset.name=name;article.innerHTML=`<h2>${title}</h2><p>${description}</p><div class="stage">${html}</div><a class="source" href="components/${name}/${name}.js">View ${name} source ↗</a>`;grid.append(article)}
+Promise.all(examples.map(([name])=>new Promise(resolve=>{const s=document.createElement('script');s.src=`components/${name}/${name}.js`;s.onload=()=>resolve(true);s.onerror=()=>resolve(false);document.body.append(s)}))).then(results=>{document.querySelector('#status').textContent=`${results.filter(Boolean).length} / ${examples.length} scripts loaded`});
+document.querySelector('#search').addEventListener('input',event=>{const term=event.target.value.toLowerCase();for(const card of grid.children)card.hidden=!card.textContent.toLowerCase().includes(term)});
+grid.addEventListener('click',event=>{const button=event.target.closest('[data-action]');if(!button)return;const stage=button.closest('.stage');if(button.dataset.action==='toast')stage.querySelector('rv-toast').show?.('Checkpoint saved!','success');if(button.dataset.action==='modal')stage.querySelector('rv-modal').show?.();if(button.dataset.action==='progress'){const bar=stage.querySelector('rv-progress');if(button.disabled)return;bar.reset?.();button.disabled=true;let n=0;const timer=setInterval(()=>{n=Math.min(1,n+.1);bar.set?.(n);if(n>=1){clearInterval(timer);button.disabled=false}},160)}});
+</script>
+</body></html>

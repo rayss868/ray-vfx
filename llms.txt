@@ -1,0 +1,192 @@
+# ray-vfx — LLM / agent manifest
+
+Ray VFX is a retro-neon arcade UI library: 20 native Web Components, zero dependencies, MIT.
+Load each component with a plain `<script src="..."></script>` (classic, not module). Each file self-registers a custom element. No CSS import, no bundler, no framework.
+
+Base URL (local): `/ray-vfx/`. CDN: `https://cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/components/<name>.js`.
+Registry index: `registry.json` (shadcn-compatible).
+
+## Components (20)
+
+Each entry: `<tag>` — one-liner. Attributes (a), properties (p), methods (m), events (e), slots. Full usage HTML.
+
+1. rv-button — pressable key that squashes on press, blooms neon on release, spark burst on success.
+   a: variant(primary|secondary|ghost), size(sm|md|lg), fx, disabled, loading, type(submit|button)
+   p: variant, size, loading
+   m: click(), done(), fail()
+   e: click, ray:fx-start, ray:fx-end
+   usage: <rv-button variant="primary" fx="burst">Insert coin</rv-button>
+
+2. rv-toggle — power switch, knob snaps across a light tube on a spring.
+   a: checked, label, disabled, name, value
+   p: checked, value
+   m: toggle()
+   e: change
+   usage: <rv-toggle label="CRT scanlines" checked></rv-toggle>
+
+3. ray-slider — volume fader with stretchy thumb lagging on a spring, phosphor trail.
+   a: min, max, step, value, label, unit, name, disabled
+   p: value, min, max
+   m: set(v)
+   e: input, change
+   usage: <rv-slider label="Volume" min="0" max="100" value="72" unit="%"></rv-slider>
+
+4. ray-checkbox — slashes a neon tick with chromatic flash.
+   a: checked, indeterminate, disabled, name, value
+   p: checked, indeterminate
+   e: change
+   usage: <rv-checkbox name="remember" checked>Remember me</rv-checkbox>
+
+5. ray-radio — radio group, selected dot springs in with fan of wedges.
+   a: name, value, label, disabled
+   p: value
+   e: change
+   children: <option value="...">Label</option>
+   usage: <rv-radio name="difficulty" label="Difficulty" value="hard"><option value="easy">Easy</option><option value="hard">Hard</option></rv-radio>
+
+6. ray-input — text field, caret kicks pixel dust on keystroke.
+   a: label, placeholder, name, value, type(text|email|password|number), disabled, required, maxlength
+   p: value
+   m: focus(), blur(), clear()
+   e: input, change, focus, blur
+   usage: <rv-input label="Callsign" name="callsign" placeholder="PLAYER_1"></rv-input>
+
+7. ray-tabs — glowing indicator stretches and slingshots between tabs; you render panels.
+   a: value, label, disabled
+   p: value
+   e: change (detail: { index, value, label })
+   children: <option value="...">Label</option>
+   usage: <rv-tabs value="scores"><option value="scores">High scores</option><option value="settings">Settings</option></rv-tabs>
+
+8. ray-progress — loading bar with comet head, scanlines, 1UP burst at 100%.
+   a: label, value(0..1), indeterminate
+   p: value
+   m: set(n), reset()
+   e: ray:progress, ray:done (once)
+   usage: <rv-progress label="Loading ROM" value="0.42"></rv-progress>
+
+9. ray-rating — 5 stars pop in sequence; full score triggers confetti.
+   a: label, value(0..max), max, readonly, name
+   p: value
+   e: change
+   usage: <rv-rating label="Your score" value="4" max="5"></rv-rating>
+
+10. ray-toast — notification streaks in as smear, wobbles, dissolves.
+    a: position(top-right|top-left|bottom-right|bottom-left), duration(ms)
+    m: show(msg, opts?), hide(), success(msg), error(msg), info(msg)
+    e: ray:show, ray:hide
+    usage: <rv-toast id="toasts" position="top-right" duration="3200"></rv-toast>
+
+11. ray-tooltip — hint bubble springs out of trigger; hover/focus/tap.
+    a: text, placement(top|bottom|left|right), delay
+    e: ray:open, ray:close
+    slot: trigger element
+    usage: <rv-tooltip text="Hold START to pause" placement="top"><button>?</button></rv-tooltip>
+
+12. ray-badge — status chip with breathing neon edge, scanline shimmer.
+    a: variant(cyan|pink|violet|lime|amber), pulse, size
+    slot: label text
+    usage: <rv-badge variant="pink" pulse>1UP</rv-badge>
+
+13. ray-select — dropdown unfolds like cabinet menu, scanline sweep, typeahead.
+    a: label, name, value, placeholder, disabled
+    p: value
+    e: change
+    children: <option value="...">Label</option>
+    usage: <rv-select label="Level" name="level"><option value="1">Sector 1</option><option value="2">Sector 2</option></rv-select>
+
+14. ray-textarea — multi-line, glowing caret, auto-grow, per-line dust.
+    a: label, rows, auto-grow, placeholder, name, value, disabled, maxlength
+    p: value
+    m: focus(), blur(), clear()
+    e: input, change
+    usage: <rv-textarea label="Notes" rows="4" auto-grow placeholder="GG..."></rv-textarea>
+
+15. ray-alert — banner slides in with glitch cut, colored edge per severity.
+    a: variant(info|success|warning|error), title, dismissible, open
+    p: open
+    m: show(), hide()
+    e: ray:dismiss
+    slot: body
+    usage: <rv-alert variant="warning" title="Coin low" dismissible>Credits: 1</rv-alert>
+
+16. ray-card — glass panel, pointer-tracked tilt, parallax sheen, hover bloom.
+    a: title, subtitle, interactive, elevation
+    slots: default body, header, footer
+    usage: <rv-card title="High score" subtitle="Sector 7" interactive><p>098,420</p></rv-card>
+
+17. ray-avatar — ringed avatar, status LED, neon outline, initials fallback.
+    a: src, alt, initials, size(sm|md|lg), status(online|offline|busy|away)
+    usage: <rv-avatar src="/img/p1.png" alt="Player 1" initials="P1" status="online"></rv-avatar>
+
+18. ray-modal — dialog zooms in on spring, dimmed CRT backdrop, focus trap.
+    a: open, title, size(sm|md|lg), closable
+    m: show(), hide(), toggle()
+    e: ray:open, ray:close
+    slots: default body, actions
+    usage: <rv-modal id="pause" title="Paused"><p>Resume?</p><button slot="actions" data-close>Resume</button></rv-modal>
+
+19. ray-pagination — page chips spring, rail sweeps light between pages.
+    a: total, per-page, page, sibling-count, disabled
+    p: page, total
+    e: change (detail: { page })
+    usage: <rv-pagination total="24" per-page="10" page="2"></rv-pagination>
+
+20. ray-spinner — orbit/pulse/bars loader, determinate mode.
+    a: variant(orbit|pulse|bars), size(sm|md|lg), value(0..1, determinate when set), label
+    p: value
+    usage: <rv-spinner variant="orbit" size="md" label="Loading"></rv-spinner>
+
+## Design rules for adding components
+
+- Extend `Base` (core/base.js). One file per component in `src/components/<name>.js`.
+- Shadow DOM only; no global CSS writes except `customElements.define`.
+- Attribute reflection: kebab-case attr <-> camelCase prop; booleans use presence.
+- Use `this.spring(target, opts)` for motion; never CSS keyframes for state transitions.
+- Effects via `this.fx(name, opts)`; register new ones with `RayFX.registerEffect(name, factory)`.
+- Form controls: `static formAssociated = true`, use `ElementInternals`.
+- Events: `this.emit(name, detail)` -> CustomEvent, bubbles+composed.
+- Cleanup in `disconnectedCallback`: cancel RAF, remove listeners, teardown effects, drop particles.
+- Respect `prefers-reduced-motion`: snap springs, skip particles/glitch/shake/trail/confetti.
+- Theming only through CSS variables (core/tokens.css); read via getComputedStyle, re-read on change.
+- Build: `node scripts/build.mjs` inlines core into `components/<name>.js` and `dist/`.
+- Name elements `ray-<name>`, files `<name>.js`, registry item name `<name>`.
+
+## Core API
+
+### Base class (core/base.js)
+- `attachShadow({ mode:'open' })`, renders template + `<style>`.
+- `observedAttributes` array of kebab-case attrs.
+- `attributeChangedCallback(name, old, next)`.
+- `connectedCallback()`, `disconnectedCallback()`.
+- `this.spring(key, target, opts)` -> Spring handle: `.to(v)`, `.set(v)`, `.stop()`, `.onFrame(fn)`, `.settled`.
+- `this.animateSpring(key, from, to, opts, onFrame)`.
+- `this.fx(name, opts)` -> cleanup fn; dispatches ray:fx-start / ray:fx-end.
+- `this.emit(name, detail)`.
+- `this.internals = this.attachInternals()` (formAssociated components).
+- `RayFX.config({ stiffness, damping, mass, reducedMotion })`.
+
+### Spring (core/spring.js)
+Damped harmonic oscillator, semi-implicit Euler:
+  a = (-k*(x-target) - c*v)/m
+  v = v + a*dt
+  x = x + v*dt
+Defaults: k=220, c=26, m=1. Settle: |x-target|<0.01 && |v|<0.01. Shared RAF loop; dt clamped to 32ms. Tunable via RayFX.config or CSS vars --rv-spring-stiffness / --rv-spring-damping or per-spring opts.
+
+### Effects (core/effects.js)
+`RayFX.registerEffect(name, factory)` where factory is `(host, opts) => cleanup`.
+`RayFX.run(host, name, opts)` -> cleanup. Max 48 pooled particles per element, GPU transforms only, self-remove.
+Built-in: glow, burst, sparks, scanline, shake, glitch, trail, pulse, chromatic, confetti.
+Declarative: `fx="burst"` (comma-separated; `fx="none"` disables).
+
+### Tokens (core/tokens.css)
+CSS variables listed in README; override on :root/section/element. Components re-read via getComputedStyle.
+
+### Accessibility
+prefers-reduced-motion honored live via matchMedia (mid-session changes too). Springs snap to target; particles/glitch/shake/trail/confetti skipped; glow becomes static opacity; no infinite loops. Force with `reduced-motion` attr or `RayFX.config({ reducedMotion:true })`. Keyboard: Tab/Space/Enter/arrows/Escape/typeahead. ARIA roles+states. ElementInternals for forms. forced-colors swaps glows for system borders.
+
+### Events convention
+All custom events prefixed `ray:` (ray:fx-start, ray:fx-end, ray:done, ray:show, ray:hide, ray:open, ray:close, ray:dismiss, ray:progress). Native-ish events (input, change, click, focus, blur) are unprefixed.
+
+### License
+MIT, (c) 2026 rayss868.
