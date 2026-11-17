@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ray VFX — Deploy Preview</title>
+<style>
+:root{--pri:#ff2d75;--acc:#00f0ff;--warn:#ffe135;--bg:#0d0d1a;--card:#1a1a2e;--dim:#8f8fa8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#f0f0ff;font:15px/1.6 ui-monospace,"Courier New",monospace}
+header{max-width:900px;margin:auto;padding:28px 20px 10px}
+h1{font-size:clamp(26px,5vw,40px);margin:0;letter-spacing:-.02em;text-shadow:3px 0 var(--pri),-3px 0 var(--acc)}
+.sub{color:var(--dim);margin:.4em 0 1.2em}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.bar a,.bar button{background:transparent;border:1px solid var(--acc);color:var(--acc);padding:8px 14px;font:inherit;cursor:pointer;text-decoration:none}
+.bar a:hover,.bar button:hover{background:var(--acc);color:#0d0d1a}
+.notice{border:1px solid #3a3a55;background:var(--card);padding:12px 16px;margin-bottom:12px;color:#c9c9e0}
+.notice b{color:var(--warn)}
+frame-wrap{display:block}
+iframe{width:100%;height:82vh;border:1px solid #3a3a55;border-radius:6px;background:#11111f}
+footer{max-width:900px;margin:auto;padding:14px 20px 40px;color:var(--dim);font-size:13px}
+footer a{color:var(--acc)}
+</style>
+</head>
+<body>
+<header>
+  <h1>RAY VFX — Deploy Preview</h1>
+  <p class="sub">20 komponen Web retro-neon arcade · MIT · tanpa dependency</p>
+  <div class="bar">
+    <button id="reload">Muat ulang preview</button>
+    <a href="https://github.com/rayss868/ray-vfx" target="_blank">GitHub repo ↗</a>
+    <a href="https://cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/index.html" target="_blank">Buka fullscreen ↗</a>
+  </div>
+  <p class="notice"><b>Preview live:</b> halaman di bawah adalah gallery asli Ray VFX yang dilayani dari jsDelivr CDN, diambil langsung dari branch <code>main</code> repo GitHub. Tombol, slider, toggle, modal — semua interaktif, silakan dicoba.</p>
+</header>
+<div id="wrap" style="max-width:1200px;margin:auto;padding:0 20px">
+  <iframe id="frame" src="https://cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/index.html" title="Ray VFX gallery dari CDN" loading="lazy" referrerpolicy="no-referrer"></iframe>
+</div>
+<footer>
+  Sumber: <a href="https://github.com/rayss868/ray-vfx">github.com/rayss868/ray-vfx</a> · commit b13e795 ·
+  CDN: <a href="https://cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/">cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/</a>
+</footer>
+<script>
+document.getElementById('reload').addEventListener('click',function(){
+  var f=document.getElementById('frame');
+  f.src=f.src.split('?')[0]+'?t='+Date.now();
+});
+</script>
+</body>
+</html>
