@@ -5,423 +5,263 @@
   "items": [
     {
       "name": "button",
-      "type": "registry:file",
-      "title": "Ray Button",
-      "description": "A pressable arcade key that squashes on press, blooms neon on release and throws a spark burst on success. Defines <rv-button>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-button",
+      "description": "ray-vfx button component",
       "files": [
         {
-          "path": "components/button.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/button.js"
+          "path": "registry/ray-vfx/button.js",
+          "target": "~/public/ray-vfx/button.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Button is a single self-contained classic script that registers a Web Component. Load /ray-vfx/button.js with a plain <script> tag (not a module), then use the <rv-button> element. API: variant (primary|secondary|ghost), size (sm|md|lg), fx, disabled, loading, type (submit|button); click(), done(), fail(); fires click, ray:fx-start, ray:fx-end. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "toggle",
-      "type": "registry:file",
-      "title": "Ray Toggle",
-      "description": "A power switch whose knob snaps across a light tube on a spring and floods the track with color. Defines <rv-toggle>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-toggle",
+      "description": "ray-vfx toggle component",
       "files": [
         {
-          "path": "components/toggle.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/toggle.js"
+          "path": "registry/ray-vfx/toggle.js",
+          "target": "~/public/ray-vfx/toggle.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Toggle is a single self-contained classic script that registers a Web Component. Load /ray-vfx/toggle.js with a plain <script> tag (not a module), then use the <rv-toggle> element. API: checked, label, disabled, name, value; toggle(); fires change. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "slider",
-      "type": "registry:file",
-      "title": "Ray Slider",
-      "description": "A volume fader with a stretchy thumb that lags behind the drag on a spring and leaves a phosphor trail. Defines <rv-slider>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-slider",
+      "description": "ray-vfx slider component",
       "files": [
         {
-          "path": "components/slider.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/slider.js"
+          "path": "registry/ray-vfx/slider.js",
+          "target": "~/public/ray-vfx/slider.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Slider is a single self-contained classic script that registers a Web Component. Load /ray-vfx/slider.js with a plain <script> tag (not a module), then use the <rv-slider> element. API: min, max, step, value, label, unit, name, disabled; set(v); fires input and change. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "checkbox",
-      "type": "registry:file",
-      "title": "Ray Checkbox",
-      "description": "A checkbox that slashes a neon tick into the box with a chromatic flash. Defines <rv-checkbox>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-checkbox",
+      "description": "ray-vfx checkbox component",
       "files": [
         {
-          "path": "components/checkbox.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/checkbox.js"
+          "path": "registry/ray-vfx/checkbox.js",
+          "target": "~/public/ray-vfx/checkbox.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Checkbox is a single self-contained classic script that registers a Web Component. Load /ray-vfx/checkbox.js with a plain <script> tag (not a module), then use the <rv-checkbox> element. API: checked, indeterminate, disabled, name, value; fires change. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "radio",
-      "type": "registry:file",
-      "title": "Ray Radio",
-      "description": "A radio group where the picked dot springs in with a fan of wedges and a hollow blip. Defines <rv-radio>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-radio",
+      "description": "ray-vfx radio component",
       "files": [
         {
-          "path": "components/radio.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/radio.js"
+          "path": "registry/ray-vfx/radio.js",
+          "target": "~/public/ray-vfx/radio.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Radio is a single self-contained classic script that registers a Web Component. Load /ray-vfx/radio.js with a plain <script> tag (not a module), then use the <rv-radio> element. API: name, value, label, disabled; <option value> children; fires change. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "input",
-      "type": "registry:file",
-      "title": "Ray Input",
-      "description": "A text field whose caret kicks up a puff of pixel dust on every keystroke. Defines <rv-input>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-input",
+      "description": "ray-vfx input component",
       "files": [
         {
-          "path": "components/input.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/input.js"
+          "path": "registry/ray-vfx/input.js",
+          "target": "~/public/ray-vfx/input.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Input is a single self-contained classic script that registers a Web Component. Load /ray-vfx/input.js with a plain <script> tag (not a module), then use the <rv-input> element. API: label, placeholder, name, value, type, disabled, required, maxlength; focus(), blur(), clear(); fires input, change, focus, blur. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "tabs",
-      "type": "registry:file",
-      "title": "Ray Tabs",
-      "description": "A tab strip where the glowing indicator stretches and slingshots between tabs; you render the panels. Defines <rv-tabs>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-tabs",
+      "description": "ray-vfx tabs component",
       "files": [
         {
-          "path": "components/tabs.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/tabs.js"
+          "path": "registry/ray-vfx/tabs.js",
+          "target": "~/public/ray-vfx/tabs.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Tabs is a single self-contained classic script that registers a Web Component. Load /ray-vfx/tabs.js with a plain <script> tag (not a module), then use the <rv-tabs> element. API: value, label, disabled; <option value> children; fires change (detail: index, value, label). All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "progress",
-      "type": "registry:file",
-      "title": "Ray Progress",
-      "description": "A loading bar with a comet head that drags scanlines and lands with a 1UP burst at 100%. Defines <rv-progress>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-progress",
+      "description": "ray-vfx progress component",
       "files": [
         {
-          "path": "components/progress.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/progress.js"
+          "path": "registry/ray-vfx/progress.js",
+          "target": "~/public/ray-vfx/progress.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Progress is a single self-contained classic script that registers a Web Component. Load /ray-vfx/progress.js with a plain <script> tag (not a module), then use the <rv-progress> element. API: label, value (0 to 1), indeterminate; set(n), reset(); fires ray:progress and ray:done (once). All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "rating",
-      "type": "registry:file",
-      "title": "Ray Rating",
-      "description": "Five stars that pop in sequence with an escalating chime; a full score triggers confetti. Defines <rv-rating>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-rating",
+      "description": "ray-vfx rating component",
       "files": [
         {
-          "path": "components/rating.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/rating.js"
+          "path": "registry/ray-vfx/rating.js",
+          "target": "~/public/ray-vfx/rating.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Rating is a single self-contained classic script that registers a Web Component. Load /ray-vfx/rating.js with a plain <script> tag (not a module), then use the <rv-rating> element. API: label, value (0 to max), max, readonly, name; fires change. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "toast",
-      "type": "registry:file",
-      "title": "Ray Toast",
-      "description": "A notification that streaks in as a smear, wobbles on landing and dissolves into pixels. Defines <rv-toast>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-toast",
+      "description": "ray-vfx toast component",
       "files": [
         {
-          "path": "components/toast.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/toast.js"
+          "path": "registry/ray-vfx/toast.js",
+          "target": "~/public/ray-vfx/toast.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Toast is a single self-contained classic script that registers a Web Component. Load /ray-vfx/toast.js with a plain <script> tag (not a module), then use the <rv-toast> element. API: position (top-right|top-left|bottom-right|bottom-left), duration (ms); show(msg), hide(), success(msg), error(msg), info(msg); fires ray:show, ray:hide. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "tooltip",
-      "type": "registry:file",
-      "title": "Ray Tooltip",
-      "description": "A hint bubble that springs out of its trigger with a CRT flicker; opens on hover, focus or tap. Defines <rv-tooltip>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-tooltip",
+      "description": "ray-vfx tooltip component",
       "files": [
         {
-          "path": "components/tooltip.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/tooltip.js"
+          "path": "registry/ray-vfx/tooltip.js",
+          "target": "~/public/ray-vfx/tooltip.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Tooltip is a single self-contained classic script that registers a Web Component. Load /ray-vfx/tooltip.js with a plain <script> tag (not a module), then use the <rv-tooltip> element. API: text, placement (top|bottom|left|right), delay; fires ray:open, ray:close. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
-    },
-    {
-      "name": "badge",
-      "type": "registry:file",
-      "title": "Ray Badge",
-      "description": "A compact status chip with a breathing neon edge and a scanline shimmer. Defines <rv-badge>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
-      "files": [
-        {
-          "path": "components/badge.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/badge.js"
-        }
-      ],
-      "docs": "Ray Badge is a single self-contained classic script that registers a Web Component. Load /ray-vfx/badge.js with a plain <script> tag (not a module), then use the <rv-badge> element. API: variant (cyan|pink|violet|lime|amber), pulse, size; label in the default slot. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "select",
-      "type": "registry:file",
-      "title": "Ray Select",
-      "description": "A dropdown that unfolds like a cabinet menu with a scanline sweep and keyboard typeahead. Defines <rv-select>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-select",
+      "description": "ray-vfx select component",
       "files": [
         {
-          "path": "components/select.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/select.js"
+          "path": "registry/ray-vfx/select.js",
+          "target": "~/public/ray-vfx/select.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Select is a single self-contained classic script that registers a Web Component. Load /ray-vfx/select.js with a plain <script> tag (not a module), then use the <rv-select> element. API: label, name, value, placeholder, disabled; <option value> children; fires change. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "textarea",
-      "type": "registry:file",
-      "title": "Ray Textarea",
-      "description": "A multi-line field with a glowing caret, auto-grow and a per-line dust effect. Defines <rv-textarea>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-textarea",
+      "description": "ray-vfx textarea component",
       "files": [
         {
-          "path": "components/textarea.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/textarea.js"
+          "path": "registry/ray-vfx/textarea.js",
+          "target": "~/public/ray-vfx/textarea.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Textarea is a single self-contained classic script that registers a Web Component. Load /ray-vfx/textarea.js with a plain <script> tag (not a module), then use the <rv-textarea> element. API: label, rows, auto-grow, placeholder, name, value, disabled, maxlength; focus(), blur(), clear(); fires input, change. Form-associated. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "alert",
-      "type": "registry:file",
-      "title": "Ray Alert",
-      "description": "A banner that slides in with a glitch cut and a colored edge glow per severity. Defines <rv-alert>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-alert",
+      "description": "ray-vfx alert component",
       "files": [
         {
-          "path": "components/alert.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/alert.js"
+          "path": "registry/ray-vfx/alert.js",
+          "target": "~/public/ray-vfx/alert.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Alert is a single self-contained classic script that registers a Web Component. Load /ray-vfx/alert.js with a plain <script> tag (not a module), then use the <rv-alert> element. API: variant (info|success|warning|error), title, dismissible, open; show(), hide(); fires ray:dismiss. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "card",
-      "type": "registry:file",
-      "title": "Ray Card",
-      "description": "A glass panel with pointer-tracked tilt, parallax sheen and a hover bloom. Defines <rv-card>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-card",
+      "description": "ray-vfx card component",
       "files": [
         {
-          "path": "components/card.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/card.js"
+          "path": "registry/ray-vfx/card.js",
+          "target": "~/public/ray-vfx/card.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Card is a single self-contained classic script that registers a Web Component. Load /ray-vfx/card.js with a plain <script> tag (not a module), then use the <rv-card> element. API: title, subtitle, interactive, elevation; slots: header, default body, footer. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "avatar",
-      "type": "registry:file",
-      "title": "Ray Avatar",
-      "description": "A ringed avatar with a status LED, neon outline and an initials fallback when the image fails. Defines <rv-avatar>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-avatar",
+      "description": "ray-vfx avatar component",
       "files": [
         {
-          "path": "components/avatar.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/avatar.js"
+          "path": "registry/ray-vfx/avatar.js",
+          "target": "~/public/ray-vfx/avatar.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Avatar is a single self-contained classic script that registers a Web Component. Load /ray-vfx/avatar.js with a plain <script> tag (not a module), then use the <rv-avatar> element. API: src, alt, initials, size (sm|md|lg), status (online|offline|busy|away). All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
-      "name": "modal",
-      "type": "registry:file",
-      "title": "Ray Modal",
-      "description": "A dialog that zooms in on a spring with a dimmed CRT backdrop and a focus trap. Defines <rv-modal>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "rv-badge",
+      "description": "ray-vfx badge component",
       "files": [
         {
-          "path": "components/modal.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/modal.js"
+          "path": "registry/ray-vfx/badge.js",
+          "target": "~/public/ray-vfx/badge.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Modal is a single self-contained classic script that registers a Web Component. Load /ray-vfx/modal.js with a plain <script> tag (not a module), then use the <rv-modal> element. API: open, title, size (sm|md|lg), closable; show(), hide(), toggle(); fires ray:open, ray:close; slot actions for footer buttons; data-close closes it. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "pagination",
-      "type": "registry:file",
-      "title": "Ray Pagination",
-      "description": "Page chips where the active one springs and the rail sweeps a light between pages. Defines <rv-pagination>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-pagination",
+      "description": "ray-vfx pagination component",
       "files": [
         {
-          "path": "components/pagination.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/pagination.js"
+          "path": "registry/ray-vfx/pagination.js",
+          "target": "~/public/ray-vfx/pagination.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Pagination is a single self-contained classic script that registers a Web Component. Load /ray-vfx/pagination.js with a plain <script> tag (not a module), then use the <rv-pagination> element. API: total, per-page, page, sibling-count, disabled; fires change (detail: page). All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
     },
     {
       "name": "spinner",
-      "type": "registry:file",
-      "title": "Ray Spinner",
-      "description": "An orbit/pulse/bars loader driven by the same spring ticker, with a determinate mode. Defines <rv-spinner>.",
-      "author": "rayss868 <https://github.com/rayss868>",
-      "categories": [
-        "component",
-        "retro",
-        "neon",
-        "animation"
-      ],
+      "type": "registry:ui",
+      "title": "rv-spinner",
+      "description": "ray-vfx spinner component",
       "files": [
         {
-          "path": "components/spinner.js",
-          "type": "registry:file",
-          "target": "~/public/ray-vfx/spinner.js"
+          "path": "registry/ray-vfx/spinner.js",
+          "target": "~/public/ray-vfx/spinner.js",
+          "type": "registry:ui"
         }
-      ],
-      "docs": "Ray Spinner is a single self-contained classic script that registers a Web Component. Load /ray-vfx/spinner.js with a plain <script> tag (not a module), then use the <rv-spinner> element. API: variant (orbit|pulse|bars), size (sm|md|lg), value (0 to 1, sets determinate), label. All motion runs on spring physics and honors prefers-reduced-motion. Source: https://github.com/rayss868/ray-vfx"
+      ]
+    },
+    {
+      "name": "modal",
+      "type": "registry:ui",
+      "title": "rv-modal",
+      "description": "ray-vfx modal component",
+      "files": [
+        {
+          "path": "registry/ray-vfx/modal.js",
+          "target": "~/public/ray-vfx/modal.js",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

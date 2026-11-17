@@ -1,50 +1,71 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ray VFX — Deploy Preview</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ray VFX | Anime-reacting controls</title>
 <style>
-:root{--pri:#ff2d75;--acc:#00f0ff;--warn:#ffe135;--bg:#0d0d1a;--card:#1a1a2e;--dim:#8f8fa8}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#f0f0ff;font:15px/1.6 ui-monospace,"Courier New",monospace}
-header{max-width:900px;margin:auto;padding:28px 20px 10px}
-h1{font-size:clamp(26px,5vw,40px);margin:0;letter-spacing:-.02em;text-shadow:3px 0 var(--pri),-3px 0 var(--acc)}
-.sub{color:var(--dim);margin:.4em 0 1.2em}
-.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.bar a,.bar button{background:transparent;border:1px solid var(--acc);color:var(--acc);padding:8px 14px;font:inherit;cursor:pointer;text-decoration:none}
-.bar a:hover,.bar button:hover{background:var(--acc);color:#0d0d1a}
-.notice{border:1px solid #3a3a55;background:var(--card);padding:12px 16px;margin-bottom:12px;color:#c9c9e0}
-.notice b{color:var(--warn)}
-frame-wrap{display:block}
-iframe{width:100%;height:82vh;border:1px solid #3a3a55;border-radius:6px;background:#11111f}
-footer{max-width:900px;margin:auto;padding:14px 20px 40px;color:var(--dim);font-size:13px}
-footer a{color:var(--acc)}
+:root { --rv-ink:#1d1a4a; --rv-card:#fff; --rv-soft:#b8b3ff; --rv-dim:#8580b0; --rv-pri:#8f8df7; --rv-acc:#ff5fa8; color-scheme:light; }
+* { box-sizing:border-box }
+body { margin:0; background:#f6f4ff; color:var(--rv-ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; }
+nav,main,footer { max-width:1320px; margin:auto; padding:24px }
+nav { display:flex; justify-content:space-between; border-bottom:3px solid var(--rv-ink) }
+a { color:var(--rv-pri) }
+.hero { padding:72px 0 52px; max-width:940px }
+.eyebrow { font:800 13px/1.3 -apple-system,system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--rv-acc) }
+h1 { font:italic 900 clamp(62px,11vw,130px)/.95 "Avenir Next",-apple-system,system-ui,sans-serif; letter-spacing:-.06em; margin:16px 0; -webkit-text-stroke:3px var(--rv-ink); color:var(--rv-card); text-shadow:6px 7px 0 var(--rv-soft) }
+h2 { font:italic 800 20px/1.2 "Avenir Next",system-ui,sans-serif; margin:0 0 4px }
+.intro { font-size:clamp(17px,2.6vw,23px); color:#4b4778; max-width:760px }
+.tags { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px }
+.tags span { border:2px solid var(--rv-ink); background:var(--rv-card); border-radius:999px; padding:5px 13px; font:700 12px/1.3 system-ui,sans-serif; box-shadow:3px 3px 0 var(--rv-soft) }
+.toolbar { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin:0 0 24px }
+input[type=search] { background:#fff; color:var(--rv-ink); border:3px solid var(--rv-ink); border-radius:10px; padding:12px; font:inherit; flex:1; min-width:180px; box-shadow:4px 5px 0 var(--rv-soft) }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr)); gap:22px }
+.demo-card { border:3px solid var(--rv-ink); background:var(--rv-card); border-radius:15px; padding:24px; min-width:0; box-shadow:6px 7px 0 var(--rv-soft) }
+.demo-card p { color:#64608f; font-size:14px; min-height:44px; margin:4px 0 }
+.stage { min-height:150px; display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap; padding:20px 0; overflow-wrap:anywhere }
+.source { font-size:13px }
+.action { background:var(--rv-card); border:3px solid var(--rv-ink); border-radius:10px; box-shadow:3px 3px 0 var(--rv-soft); color:var(--rv-ink); padding:9px 14px; font:800 14px system-ui,sans-serif; cursor:pointer }
+.action:focus-visible,a:focus-visible,input:focus-visible { outline:3px solid var(--rv-acc); outline-offset:3px }
+#status { font-size:13px; color:var(--rv-dim) }
+footer { margin-top:50px; border-top:3px solid var(--rv-ink); color:var(--rv-dim) }
+@media(max-width:500px){main,nav,footer{padding:18px}.hero{padding:48px 0}.demo-card{padding:18px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header>
-  <h1>RAY VFX — Deploy Preview</h1>
-  <p class="sub">20 komponen Web retro-neon arcade · MIT · tanpa dependency</p>
-  <div class="bar">
-    <button id="reload">Muat ulang preview</button>
-    <a href="https://github.com/rayss868/ray-vfx" target="_blank">GitHub repo ↗</a>
-    <a href="https://cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/index.html" target="_blank">Buka fullscreen ↗</a>
-  </div>
-  <p class="notice"><b>Preview live:</b> halaman di bawah adalah gallery asli Ray VFX yang dilayani dari jsDelivr CDN, diambil langsung dari branch <code>main</code> repo GitHub. Tombol, slider, toggle, modal — semua interaktif, silakan dicoba.</p>
-</header>
-<div id="wrap" style="max-width:1200px;margin:auto;padding:0 20px">
-  <iframe id="frame" src="https://cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/index.html" title="Ray VFX gallery dari CDN" loading="lazy" referrerpolicy="no-referrer"></iframe>
-</div>
-<footer>
-  Sumber: <a href="https://github.com/rayss868/ray-vfx">github.com/rayss868/ray-vfx</a> · commit b13e795 ·
-  CDN: <a href="https://cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/">cdn.jsdelivr.net/gh/rayss868/ray-vfx@main/</a>
-</footer>
+<nav><strong>RAY / VFX LAB</strong><a href="https://github.com/rayss868/ray-vfx">Source on GitHub</a></nav>
+<main>
+<header class="hero"><div class="eyebrow">Everyday controls. Animated reactions.</div><h1>RAY VFX</h1><p class="intro">Twenty ordinary UI controls that react like an anime key animator drew them. Press one and it squashes on a spring, throws smoke puffs and impact bursts, and lets a manga sound effect land. No framework, no build step, no dependencies.</p><div class="tags"><span>20 components</span><span>Native Web Components</span><span>Zero dependencies</span><span>MIT</span></div></header>
+<div class="toolbar"><label for="search">Find a component</label><input id="search" type="search" placeholder="Button, modal, slider..."><span id="status" role="status">Loading controls...</span></div>
+<section class="grid" id="grid" aria-label="Interactive component gallery"></section>
+</main><footer>Ray VFX · MIT license · <a href="llms.txt">Agent reference</a> · <a href="registry.json">Component registry</a></footer>
 <script>
-document.getElementById('reload').addEventListener('click',function(){
-  var f=document.getElementById('frame');
-  f.src=f.src.split('?')[0]+'?t='+Date.now();
-});
+const examples = [
+['button','Impact button','Press and release. ドン!','<rv-button>Confirm</rv-button><rv-button variant="secondary">Cancel</rv-button>'],
+['toggle','Power switch','43 painted frames flip the knob.','<rv-toggle label="Notifications" checked></rv-toggle>'],
+['slider','Volume fader','The thumb stretches and lags.','<rv-slider label="Volume" min="0" max="100" value="72" unit="%"></rv-slider>'],
+['checkbox','Checkbox','A pink tick slashes in with crystals.','<rv-checkbox name="remember" checked>Remember me</rv-checkbox>'],
+['radio','Radio group','The dot springs in with a hollow ポン.','<rv-radio label="Difficulty" name="diff" value="hard"><option value="easy">Easy</option><option value="hard">Hard</option></rv-radio>'],
+['input','Text input','Every key kicks up dust.','<rv-input label="Callsign" placeholder="PLAYER_1"></rv-input>'],
+['tabs','Tabs','The indicator slingshots between tabs.','<rv-tabs value="scores"><option value="scores">High scores</option><option value="settings">Settings</option></rv-tabs>'],
+['progress','Progress','A storm cloud rides the leading edge.','<rv-progress label="Loading ROM"></rv-progress><button class="action" data-action="progress">Charge</button>'],
+['rating','Rating','Five stars pop in, then confetti.','<rv-rating label="Your score" value="4"></rv-rating>'],
+['toast','Toast','Streaks in as a smear, lands in dust.','<rv-toast position="top-right"></rv-toast><button class="action" data-action="toast">Show toast</button>'],
+['tooltip','Tooltip','A speech bubble springs out.','<rv-tooltip text="Hold START to pause" placement="top"><button class="action">?</button></rv-tooltip>'],
+['select','Select','A dropdown that unfolds like a cabinet menu.','<rv-select label="Level"><option value="1">Sector 1</option><option value="2">Sector 2</option></rv-select>'],
+['textarea','Textarea','Dust where the caret is.','<rv-textarea label="Notes" rows="3" placeholder="GG..."></rv-textarea>'],
+['alert','Alert','Cuts in with a slash.','<rv-alert variant="warning" title="Coin low" dismissible>Credits: 1</rv-alert>'],
+['card','Card','Paper card, pointer tilt.','<rv-card title="High score" subtitle="Sector 7" interactive><p>098,420</p></rv-card>'],
+['avatar','Avatar','A ring with a status LED.','<rv-avatar initials="RV" status="online"></rv-avatar>'],
+['badge','Badge','A small paper chip.','<rv-badge variant="pink" pulse>1UP</rv-badge>'],
+['modal','Modal','Zooms in on a spring.','<rv-modal title="Paused"><p>Resume?</p><button slot="actions" data-close class="action">Resume</button></rv-modal><button class="action" data-action="modal">Open dialog</button>'],
+['pagination','Pagination','Chips spring, a smoke ring drifts off.','<rv-pagination total="24" per-page="10" page="2"></rv-pagination>'],
+['spinner','Spinner','An orbiting ink dot.','<rv-spinner label="Loading"></rv-spinner>']
+];
+const grid=document.querySelector('#grid');
+for(const [name,title,description,html] of examples){const article=document.createElement('article');article.className='demo-card';article.dataset.name=name;article.innerHTML=`<h2>${title}</h2><p>${description}</p><div class="stage">${html}</div><a class="source" href="components/${name}/${name}.js">View ${name} source ↗</a>`;grid.append(article)}
+Promise.all(examples.map(([name])=>new Promise(resolve=>{const s=document.createElement('script');s.src=`components/${name}/${name}.js`;s.onload=()=>resolve(true);s.onerror=()=>resolve(false);document.body.append(s)}))).then(results=>{document.querySelector('#status').textContent=`${results.filter(Boolean).length} / ${examples.length} scripts loaded`});
+document.querySelector('#search').addEventListener('input',event=>{const term=event.target.value.toLowerCase();for(const card of grid.children)card.hidden=!card.textContent.toLowerCase().includes(term)});
+grid.addEventListener('click',event=>{const button=event.target.closest('[data-action]');if(!button)return;const stage=button.closest('.stage');if(button.dataset.action==='toast')stage.querySelector('rv-toast').show?.('New high score!');if(button.dataset.action==='modal')stage.querySelector('rv-modal').show?.();if(button.dataset.action==='progress'){const bar=stage.querySelector('rv-progress');if(button.disabled)return;bar.reset?.();button.disabled=true;let n=0;const timer=setInterval(()=>{n=Math.min(1,n+.1);bar.set?.(n);if(n>=1){clearInterval(timer);button.disabled=false}},160)}});
 </script>
-</body>
-</html>
+</body></html>
